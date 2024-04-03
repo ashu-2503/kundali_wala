@@ -1,0 +1,79 @@
+<div class="row header">
+  <h1>CONTACT US</h1>
+</div>
+<!-- <div class="container description">
+    <h2>Make Your Appointment To Discuss Any Problem</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut fuga sapiente recusandae harum, accusamus neque quod
+        temporibus libero laudantium, nostrum eligendi! Odio repellendus rem illum, qui modi praesentium debitis nisi.
+    </p>
+</div> -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 contact-form">
+      <form [formGroup]="contactUsForm" (ngSubmit)="submit()">
+        <p>
+          <mat-form-field class="input-title" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput placeholder="Enter Your Name" formControlName="name">
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="contactUsForm.get('name')?.hasError('required')">Name is required</mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field class="input-title" appearance="outline">
+            <mat-label>Contact Number</mat-label>
+            <input type="number" matInput placeholder="Enter Your Number" formControlName="phoneNumber">
+            <mat-icon matSuffix>phone</mat-icon>
+            <mat-error *ngIf="contactUsForm.get('phoneNumber')?.hasError('required')">Number is required</mat-error>
+            <mat-error *ngIf="contactUsForm.get('phoneNumber')?.hasError('phoneValidator')">Invalid number format</mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field class="input-title" appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input type="email" matInput placeholder="Enter Your Email" formControlName="email">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="contactUsForm.get('email')?.hasError('required')">Email is required</mat-error>
+            <mat-error *ngIf="contactUsForm.get('email')?.hasError('email')">Not a valid email</mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field class="input-title" appearance="outline">
+            <mat-label>Message</mat-label>
+            <textarea rows="4" matInput placeholder="Ex. I have a query regarding..."
+              formControlName="query"></textarea>
+            <mat-icon matSuffix>comment</mat-icon>
+          </mat-form-field>
+        </p>
+        <button (click)="submit" class="button" [disabled]="!contactUsForm.valid">SEND MESSAGE</button>
+      </form>
+    </div>
+
+    <div class="col-sm-6 contact-banner">
+      <div class="row banner-label">
+        <div class="col-sm-1"><mat-icon class="material-icon">place</mat-icon></div>
+        <div class="col-sm-11">XYZ<br>XYZ<br>XYZ</div>
+      </div>
+      <div class="row banner-label">
+        <div class="col-sm-1"><mat-icon class="material-icon">phone</mat-icon></div>
+        <div class="col-sm-11">+91 99999999999</div>
+      </div>
+      <div class="row banner-label">
+        <div class="col-sm-1"><mat-icon class="material-icon">email</mat-icon></div>
+        <div class="col-sm-11">xyz@gmail.com</div>
+      </div>
+      <div class="row social-links">
+        <div class="col mt-3">
+          <h5>Reach Us:</h5>
+        </div>
+        <div class="col"><a href="" class="twitter"><i class="bi bi-twitter"></i></a></div>
+        <div class="col"><a href="" class="facebook"><i class="bi bi-facebook"></i></a></div>
+        <div class="col"><a href="" class="instagram"><i class="bi bi-instagram"></i></a></div>
+        <div class="col"><a href="" class="whatsapp"><i class="bi bi-whatsapp"></i></a></div>
+      </div>
+    </div>
+  </div>
+</div>

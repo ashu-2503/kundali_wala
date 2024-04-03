@@ -1,0 +1,13 @@
+h1{
+    font-family:'Philosopher-Regular';
+    text-align: center;
+    padding-top: 2%;
+}
+p{
+    text-align: justify;
+    font-size: larger;
+    padding-top: 2%;
+}
+img{
+    border-radius: 6px;
+}

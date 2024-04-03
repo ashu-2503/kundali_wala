@@ -1,0 +1,20 @@
+.navbar{
+    background-color: rgb(238, 109, 34);
+}
+
+.nav-link{
+    color: rgb(12, 69, 143);
+    
+}
+:hover.nav-link{
+    color: white;
+}
+.btn{
+    background-color: rgb(36, 85, 150);
+    color: aliceblue;
+}
+:hover.btn{
+    background-color: white;
+    color: rgb(117, 155, 204);
+    
+}

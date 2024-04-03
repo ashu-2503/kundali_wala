@@ -1,0 +1,25 @@
+.footer{
+    background-color: rgba(3, 28, 61, 0.973);
+    color: white;
+    padding: 2%;
+}
+h5{
+    margin-top: 3%;
+}
+.address{
+    padding-left: 3%;
+    margin-right: 5% ;
+}
+.social-media-links{
+    padding-left: 3%;
+}
+p{
+    text-align: justify;
+}
+.link-route{
+    text-decoration:none;
+}
+:hover.link-route{
+    margin-left: 2%;
+    color: aliceblue;
+}

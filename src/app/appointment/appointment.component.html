@@ -1,0 +1,114 @@
+<div class="row header">
+    <h1>APPOINTMENT</h1>
+</div>
+<div class="container description">
+    <h2>Make Your Appointment To Discuss Any Problem</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut fuga sapiente recusandae harum, accusamus neque quod
+        temporibus libero laudantium, nostrum eligendi! Odio repellendus rem illum, qui modi praesentium debitis nisi.
+    </p>
+</div>
+<div class="container appointment-form">
+    <h3>Appointment Form</h3>
+    <form [formGroup]="appointmentForm" (ngSubmit)="submit()">
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input type="text" matInput placeholder="Enter Your Name" formControlName="name">
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-error *ngIf="appointmentForm.get('name')?.hasError('required')">Name is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>E-mail</mat-label>
+                    <input type="email" matInput placeholder="Enter Your Email" formControlName="email">
+                    <mat-icon matSuffix>email</mat-icon>
+                    <mat-error *ngIf="appointmentForm.get('email')?.hasError('required')">Email is required</mat-error>
+                    <mat-error *ngIf="appointmentForm.get('email')?.hasError('email')">Not a valid email</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Mobile Number</mat-label>
+                    <input type="number" matInput placeholder="Enter Your Number" formControlName="mobileNumber">
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <mat-error *ngIf="appointmentForm.get('mobileNumber')?.hasError('required')">Number is
+                        required</mat-error>
+                    <mat-error *ngIf="appointmentForm.get('mobileNumber')?.hasError('phoneValidator')">Invalid number
+                        format</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="genders">
+                        <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                            {{ gender.viewValue }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="appointmentForm.get('genders')?.hasError('required')">Gender is
+                        required</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Preffered Date</mat-label>
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="appointmentForm.get('date')?.hasError('required')">Date is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col-sm-4 custom-inputbox">
+                        <mat-form-field class="input" appearance="outline">
+                            <mat-label>Hrs</mat-label>
+                            <input type="number" min="00" max="12" matInput placeholder="Hrs" formControlName="hrs">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-4 custom-inputbox">
+                        <mat-form-field class="input" appearance="outline">
+                            <mat-label>Min</mat-label>
+                            <input type="number" min="00" max="59" matInput placeholder="Min" formControlName="min">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-4 custom-inputbox">
+                        <mat-form-field class="input" appearance="outline">
+                            <input type="number" matInput placeholder="AM/PM" formControlName="meridiem">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <textarea rows="5" matInput placeholder="Enter your Address" formControlName="address"></textarea>
+                    <mat-icon matSuffix>place</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Reason For Appointment</mat-label>
+                    <textarea rows="5" matInput placeholder="I want to know about..."
+                        formControlName="reason"></textarea>
+                    <mat-icon matSuffix>message</mat-icon>
+                    <mat-error *ngIf="appointmentForm.get('reason')?.hasError('required')">Required Field</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <button class="button" (click)="submit" [disabled]="!appointmentForm.valid">SUBMIT</button>
+        </div>
+    </form>
+</div>

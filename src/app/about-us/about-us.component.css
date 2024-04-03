@@ -1,0 +1,10 @@
+h1{
+    font-family:'Philosopher-Regular';
+    text-align: center;
+}
+p{
+    text-align: justify;
+    font-size: larger;
+    padding-top: 2%;
+    margin-bottom: 5%;
+}

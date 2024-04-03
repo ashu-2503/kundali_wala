@@ -1,0 +1,15 @@
+.main-container{
+    background-image: url("src/assets/images/bg-home.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h1{
+    font-family:'Philosopher-Regular';
+    text-align: center;
+    margin-bottom: 4%;
+}
+
+.service-row{
+    margin-left: 7%;
+}
+
