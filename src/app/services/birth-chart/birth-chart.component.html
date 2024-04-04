@@ -1,1 +1,125 @@
-<p>birth-chart works!</p>
+<div class="container mt-5 description">
+    <h1>KUNDALI</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut fuga sapiente recusandae harum, accusamus neque quod
+        temporibus libero laudantium, nostrum eligendi! Odio repellendus rem illum, qui modi praesentium debitis nisi.
+    </p>
+</div>
+<div class="container kundali-form">
+    <h3>Get Your Kundali</h3>
+    <form [formGroup]="kundaliForm" (ngSubmit)="submit()">
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input type="text" matInput placeholder="Enter Your Name" formControlName="name">
+                    <!-- <mat-icon matSuffix>person</mat-icon> -->
+                    <mat-error *ngIf="kundaliForm.get('name')?.hasError('required')">Name is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <input type="email" matInput placeholder="Enter Your Gender" formControlName="gender">
+                    <!-- <mat-icon matSuffix>email</mat-icon> -->
+                    <!-- <mat-error *ngIf="kundaliForm.get('email')?.hasError('email')">Not a valid email</mat-error> -->
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-sm-4 custom-inputbox">
+                        <mat-form-field class="input" appearance="outline">
+                            <mat-label>Year</mat-label>
+                            <input type="number" matInput placeholder="Year" formControlName="year">
+                            <mat-error *ngIf="kundaliForm.get('timezone')?.hasError('required')">Required Field</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-4 custom-inputbox">
+                        <mat-form-field class="input" appearance="outline">
+                            <mat-label>Month</mat-label>
+                            <input type="number" min="00" max="12" matInput placeholder="Month" formControlName="month">
+                            <mat-error *ngIf="kundaliForm.get('timezone')?.hasError('required')">Required Field</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-4 custom-inputbox">
+                        <mat-form-field class="input" appearance="outline">
+                            <mat-label>Date</mat-label>
+                            <input type="number" min="00" max="31" matInput placeholder="Date" formControlName="date">
+                            <mat-error *ngIf="kundaliForm.get('timezone')?.hasError('required')">Required Field</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col-sm-4 custom-inputbox">
+                        <mat-form-field class="input" appearance="outline">
+                            <mat-label>Hrs</mat-label>
+                            <input type="number" min="00" max="12" matInput placeholder="Hrs" formControlName="hours">
+                            <mat-error *ngIf="kundaliForm.get('hours')?.hasError('required')">Required Field</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-4 custom-inputbox">
+                        <mat-form-field class="input" appearance="outline">
+                            <mat-label>Min</mat-label>
+                            <input type="number" min="00" max="59" matInput placeholder="Min" formControlName="minutes">
+                            <mat-error *ngIf="kundaliForm.get('minutes')?.hasError('required')">Required Field</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-4 custom-inputbox">
+                        <mat-form-field class="input" appearance="outline">
+                            <mat-label>Sec</mat-label>
+                            <input type="number" min="00" max="59" matInput placeholder="Sec" formControlName="seconds">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Birth Place</mat-label>
+                    <input type="text" matInput placeholder="Enter Your Birth Place" formControlName="birthplace">
+                    <!-- <mat-icon matSuffix>place</mat-icon> -->
+                    <mat-error *ngIf="kundaliForm.get('birthplace')?.hasError('required')">Birth Place is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>TimeZone</mat-label>
+                    <input type="number" matInput placeholder="Enter Birth Place TimeZone" formControlName="timezone">
+                    <mat-error *ngIf="kundaliForm.get('timezone')?.hasError('required')">Required Field</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Latitude</mat-label>
+                    <input type="number" min="-90" max="90" matInput placeholder="Enter Birth Location Latitude" formControlName="latitude">
+                    <mat-error *ngIf="kundaliForm.get('latitude')?.hasError('required')">Required Field</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Longitude</mat-label>
+                    <input type="number" min="-180" max="180" matInput placeholder="Enter Birth Location Longitude" formControlName="longitude">
+                    <mat-error *ngIf="kundaliForm.get('longitude')?.hasError('required')">Required Field</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <button class="button" (click)="submit" [disabled]="!kundaliForm.valid">GENERATE</button>
+        </div>
+    </form>
+    <div *ngIf="imageUrl" class="row mt-5">
+        <h3>Horoscope Chart</h3>
+        <img src="imageUrl" alt="Horoscope Chart">
+      </div>
+</div>
