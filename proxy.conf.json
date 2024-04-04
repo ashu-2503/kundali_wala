@@ -1,0 +1,8 @@
+{
+    "/horoscope-chart-url": {
+      "target": "https://json.freeastrologyapi.com",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+  
